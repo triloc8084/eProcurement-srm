@@ -22,7 +22,6 @@ Route::get('/dashboard', function () {
 use App\Http\Controllers\Admin\KnowledgeBaseController as AdminKBController;
 use App\Http\Controllers\User\KnowledgeBaseController as UserKBController;
 
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\NotificationController as AdminNotificationController;
@@ -31,7 +30,6 @@ use App\Http\Controllers\User\SupplierController as UserSupplierController;
 // Admin Routes
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
-    // Route::get('/users', [UserController::class, 'index'])->name('users.index'); // User section removed
     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
     Route::get('/reports/suppliers/export', [ReportController::class, 'exportSuppliers'])->name('reports.suppliers.export');
     Route::get('/reports/procurements/export', [ReportController::class, 'exportProcurements'])->name('reports.procurements.export');

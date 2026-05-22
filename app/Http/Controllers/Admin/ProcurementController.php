@@ -97,7 +97,6 @@ class ProcurementController extends Controller
             ]);
         }
 
-
         // Notify the Customer
         Notification::create([
             'user_id' => $procurement->requested_by,
@@ -106,9 +105,6 @@ class ProcurementController extends Controller
             'message' => 'Your order "' . $procurement->title . '" has been updated to: ' . ucfirst($validated['status']),
             'is_read' => false,
         ]);
-
-
-
 
         // Update or Create the status for THIS admin
         ProcurementStatus::updateOrCreate(
@@ -119,7 +115,6 @@ class ProcurementController extends Controller
         return redirect()->route('admin.procurements.index')->with('success', 'Procurement request updated successfully.');
     }
 
-    
     public function destroy(Procurement $procurement)
     {
         $procurement->delete();

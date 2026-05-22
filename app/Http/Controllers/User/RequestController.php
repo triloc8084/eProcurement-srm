@@ -7,6 +7,7 @@ use App\Models\Procurement;
 use App\Models\Supplier;
 use App\Models\Notification;
 use App\Models\AuditLog;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

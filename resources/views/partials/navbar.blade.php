@@ -106,7 +106,7 @@
                 <div class="dropdown">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="position-relative d-inline-block me-2">
-                            <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=4f46e5&color=fff" alt="" width="36" height="36" class="rounded-circle border border-2 border-primary shadow-sm" style="box-shadow: 0 0 10px rgba(79, 70, 229, 0.5) !important;">
+                            <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=4f46e5&color=fff" alt="" width="36" height="36" class="rounded-circle border-2 border-primary shadow-sm" style="box-shadow: 0 0 10px rgba(79, 70, 229, 0.5) !important;">
                             <span class="position-absolute bottom-0 end-0 p-1 bg-success border border-light rounded-circle"></span>
                         </div>
                         <div class="d-none d-sm-flex flex-column lh-1">
@@ -152,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateIcon(theme) {
+        if (!themeIcon) return;
         if(theme === 'light') {
             themeIcon.classList.replace('bi-moon-stars', 'bi-sun');
             themeIcon.classList.add('text-warning');
