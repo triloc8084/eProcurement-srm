@@ -31,17 +31,17 @@ class Supplier extends Model
     public function getAverageRatingAttribute()
     {
         if (array_key_exists('average_rating', $this->attributes)) {
-            return $this->attributes['average_rating'];
+            return $this->attributes['average_rating'] !== null ? (float) $this->attributes['average_rating'] : 0.0;
         }
-        return $this->procurements()->whereNotNull('customer_rating')->avg('customer_rating');
+        return (float) ($this->procurements()->whereNotNull('customer_rating')->avg('customer_rating') ?? 0.0);
     }
 
     public function getRatingCountAttribute()
     {
         if (array_key_exists('rating_count', $this->attributes)) {
-            return $this->attributes['rating_count'];
+            return (int) $this->attributes['rating_count'];
         }
-        return $this->procurements()->whereNotNull('customer_rating')->count();
+        return (int) $this->procurements()->whereNotNull('customer_rating')->count();
     }
 }
 

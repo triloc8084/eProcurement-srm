@@ -79,7 +79,7 @@
             <div class="row g-4 mb-5">
                 <div class="col-md-4 text-center">
                     <div class="p-3 bg-dark bg-opacity-25 rounded border border-secondary border-opacity-25">
-                        <h2 class="fw-bold text-warning mb-0">{{ number_format($supplier->average_rating, 1) }}</h2>
+                        <h2 class="fw-bold text-warning mb-0">{{ number_format($supplier->average_rating ?? 0, 1) }}</h2>
                         <small class="text-muted">Avg. Rating</small>
                     </div>
                 </div>
