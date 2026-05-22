@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\KnowledgeBase;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 
 class KnowledgeBaseController extends Controller

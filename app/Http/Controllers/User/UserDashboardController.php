@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Procurement;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class UserDashboardController extends Controller
