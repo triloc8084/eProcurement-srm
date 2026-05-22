@@ -11,7 +11,13 @@ class SupplierController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Supplier::where('status', 'active');
+        $query = Supplier::where('status', 'active')
+            ->withCount(['procurements as rating_count' => function ($q) {
+                $q->whereNotNull('customer_rating');
+            }])
+            ->withAvg(['procurements as average_rating' => function ($q) {
+                $q->whereNotNull('customer_rating');
+            }], 'customer_rating');
 
         if ($request->filled('search')) {
             $searchTerm = $request->search;
